@@ -7,4 +7,11 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello from GitHub Actions"
+      - name: Show files BEFORE checkout
+        run: ls -la
+
+      - name: Download my repo
+        uses: actions/checkout@v4
+
+      - name: Show files AFTER checkout
+        run: ls -la
