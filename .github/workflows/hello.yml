@@ -7,11 +7,12 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Show files BEFORE checkout
-        run: ls -la
+      - uses: actions/checkout@v4
 
-      - name: Download my repo
-        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Show files AFTER checkout
-        run: ls -la
+      - run: node --version
+
+      - run: npm test
